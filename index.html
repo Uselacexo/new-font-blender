@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Customizer & PNG Exporter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Font Visualizer & PNG Exporter</h1>
+
+        <p class="explanation">
+            This tool allows you to visually customize text and export it as a PNG image.
+            <strong>Please note:</strong> Creating entirely new font files (.ttf, .otf) with custom glyphs directly within a static web application (like this one hosted on GitHub Pages) is extremely complex and generally not feasible due to browser security restrictions and the intricate nature of font file formats. Dedicated software or server-side tools are required for actual font generation.
+        </p>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="inputText">Your Text:</label>
+                <textarea id="inputText" rows="4">Hello World! The quick brown fox jumps over the lazy dog. 12345</textarea>
+            </div>
+
+            <div class="control-group">
+                <label for="fontFamily">Font Family:</label>
+                <select id="fontFamily">
+                    <option value="Roboto, sans-serif">Roboto</option>
+                    <option value="Open Sans, sans-serif">Open Sans</option>
+                    <option value="Montserrat, sans-serif">Montserrat</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="Times New Roman, serif">Times New Roman</option>
+                    </select>
+            </div>
+
+            <div class="control-group">
+                <label for="fontSize">Font Size (px):</label>
+                <input type="range" id="fontSize" min="20" max="200" value="72">
+                <span id="fontSizeValue">72px</span>
+            </div>
+
+            <div class="control-group">
+                <label for="fontWeight">Font Weight:</label>
+                <select id="fontWeight">
+                    <option value="normal">Normal</option>
+                    <option value="bold">Bold</option>
+                    <option class="google-font-weight" value="400">400 (Regular)</option>
+                    <option class="google-font-weight" value="700">700 (Bold)</option>
+                    </select>
+            </div>
+
+            <div class="control-group">
+                <label for="letterSpacing">Letter Spacing (px):</label>
+                <input type="range" id="letterSpacing" min="-5" max="10" step="0.1" value="0">
+                <span id="letterSpacingValue">0px</span>
+            </div>
+
+            <div class="control-group">
+                <label for="lineHeight">Line Height (em):</label>
+                <input type="range" id="lineHeight" min="0.8" max="2.5" step="0.1" value="1.2">
+                <span id="lineHeightValue">1.2em</span>
+            </div>
+
+            <div class="control-group">
+                <label for="textColor">Text Color:</label>
+                <input type="color" id="textColor" value="#000000">
+            </div>
+
+            <div class="control-group">
+                <label for="backgroundColor">Background Color (for PNG):</label>
+                <input type="color" id="backgroundColor" value="#FFFFFF">
+            </div>
+
+            <div class="control-group">
+                <label for="textScaleX">Simulated Width Scale:</label>
+                <input type="range" id="textScaleX" min="0.5" max="2.0" step="0.05" value="1.0">
+                <span id="textScaleXValue">1.0x</span>
+            </div>
+
+            <div class="control-group">
+                <label for="textScaleY">Simulated Cap Height Scale:</label>
+                <input type="range" id="textScaleY" min="0.5" max="2.0" step="0.05" value="1.0">
+                <span id="textScaleYValue">1.0x</span>
+            </div>
+
+            <button id="downloadPng">Download as PNG</button>
+        </div>
+
+        <div class="preview-area">
+            <h2>Live Preview</h2>
+            <div id="textPreview"></div>
+            <canvas id="textCanvas" style="display: none;"></canvas> </div>
+
+        <div class="resources">
+            <h2>Further Exploration (Actual Font Creation)</h2>
+            <p>
+                If you are serious about creating custom font files (.ttf, .otf) with unique glyphs and full typographic control, you will need specialized software or more advanced development tools. Here are some options:
+            </p>
+            <ul>
+                <li><strong>Glyphr Studio:</strong> A free and open-source web-based font editor for hobbyists and beginners.
+                    <a href="https://glyphrstudio.com/" target="_blank">glyphrstudio.com</a>
+                </li>
+                <li><strong>FontForge:</strong> A free and open-source desktop font editor for more advanced users.
+                    <a href="https://fontforge.org/" target="_blank">fontforge.org</a>
+                </li>
+                <li><strong>Professional Software:</strong> Adobe Illustrator + Fontself Maker, Glyphs, RoboFont.</li>
+                <li><strong>Programmatic (Python):</strong> Libraries like `fontTools` allow for manipulation of font files, but creating glyphs from scratch still requires defining complex Bézier paths.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
